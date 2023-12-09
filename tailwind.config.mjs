@@ -13,10 +13,6 @@ export default {
     require("@tailwindcss/typography"),
   ],
   theme: {
-    extend: {
-      fontFamily: {
-        sans: ["Kanit", ...defaultTheme.fontFamily.sans],
-      },
-    },
+    extend: {},
   },
 };
