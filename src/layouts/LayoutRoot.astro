@@ -1,9 +1,5 @@
 ---
 import "@fontsource/kanit";
-import "@fontsource-variable/noto-sans-mono";
-import "@fontsource-variable/public-sans";
-
-import "../styles/global.css";
 
 interface Props {
   pageTitle: string;
@@ -16,7 +12,7 @@ const { pageTitle } = Astro.props;
 <html lang="th">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{pageTitle} | Yutna</title>
