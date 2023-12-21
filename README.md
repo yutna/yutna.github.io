@@ -7,7 +7,7 @@ Welcome to my personal website repository.
 Ensure that these tools are installed on your local machine prior to running
 this project.
 
-- [Node.js (v20.9.0)][1]
+- [Node.js (v20.10.0)][1]
 - [Visual Studio Code][2]
 - [Astro support for Visual Studio Code][3]
 
