@@ -1,8 +1,10 @@
 ---
-import LayoutRoot from "@/layouts/LayoutRoot.astro";
+import LayoutDefalt from "@/layouts/layout-defalt.astro";
+
+const pageTitle = "หน้าแรก";
 ---
 
-<LayoutRoot pageTitle="หน้าแรก">
+<LayoutDefalt pageTitle={pageTitle}>
   <main
     class="flex h-screen w-screen flex-col items-center justify-center gap-5"
   >
@@ -11,4 +13,4 @@ import LayoutRoot from "@/layouts/LayoutRoot.astro";
       เว็บไซต์กำลังอยู่ระหว่างการพัฒนาครับ แล้วเจอกันเร็วๆนี้ ☺️
     </p>
   </main>
-</LayoutRoot>
+</LayoutDefalt>

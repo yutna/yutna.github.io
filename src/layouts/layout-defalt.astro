@@ -1,0 +1,12 @@
+---
+import LayoutRoot from "@/layouts/layout-root.astro";
+import type { Props as LayoutRootProps } from "@/layouts/layout-root.astro";
+
+export interface Props extends LayoutRootProps {}
+
+const { pageTitle } = Astro.props;
+---
+
+<LayoutRoot pageTitle={pageTitle}>
+  <slot />
+</LayoutRoot>
