@@ -1,5 +1,7 @@
 ---
 import "@/config/initializers/fonts";
+
+import { ViewTransitions } from "astro:transitions";
 import Maintenance from "@/components/maintenance.astro";
 
 export interface Props {
@@ -18,6 +20,7 @@ const isMaintenanceMode = false;
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{pageTitle} | Yutna</title>
+    <ViewTransitions />
   </head>
   <body>
     {isMaintenanceMode ? <Maintenance /> : <slot />}
