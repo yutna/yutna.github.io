@@ -1,11 +1,13 @@
 ---
 import "@/config/initializers/fonts";
+import Maintenance from "@/components/maintenance.astro";
 
 export interface Props {
   pageTitle: string;
 }
 
 const { pageTitle } = Astro.props;
+const isMaintenanceMode = false;
 ---
 
 <!doctype html>
@@ -18,6 +20,6 @@ const { pageTitle } = Astro.props;
     <title>{pageTitle} | Yutna</title>
   </head>
   <body>
-    <slot />
+    {isMaintenanceMode ? <Maintenance /> : <slot />}
   </body>
 </html>
