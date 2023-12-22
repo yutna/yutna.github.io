@@ -1,4 +1,5 @@
 ---
+import Header from "@/components/header.astro";
 import LayoutRoot from "@/layouts/layout-root.astro";
 import type { Props as LayoutRootProps } from "@/layouts/layout-root.astro";
 
@@ -8,5 +9,6 @@ const { pageTitle } = Astro.props;
 ---
 
 <LayoutRoot pageTitle={pageTitle}>
+  <Header />
   <slot />
 </LayoutRoot>
