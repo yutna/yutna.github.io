@@ -1,0 +1,25 @@
+---
+import Container from "@/components/container.astro";
+import LayoutDefalt from "@/layouts/layout-defalt.astro";
+
+import type { GetStaticPaths } from "astro";
+
+export const getStaticPaths = (async () => {
+  return [
+    { params: { tag: "a" } },
+    { params: { tag: "b" } },
+    { params: { tag: "c" } },
+  ];
+}) satisfies GetStaticPaths;
+
+const { tag } = Astro.params;
+const pageTitle = `แท็ก - ${tag}`;
+---
+
+<LayoutDefalt pageTitle={pageTitle}>
+  <Container>
+    <main class="my-4">
+      <h1>{pageTitle}</h1>
+    </main>
+  </Container>
+</LayoutDefalt>
