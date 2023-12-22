@@ -1,11 +1,14 @@
 ---
+import Container from "@/components/container.astro";
 import LayoutDefalt from "@/layouts/layout-defalt.astro";
 
 const pageTitle = "หน้าแรก";
 ---
 
 <LayoutDefalt pageTitle={pageTitle}>
-  <main>
-    <h1>{pageTitle}</h1>
-  </main>
+  <Container>
+    <main class="py-4">
+      <h1>{pageTitle}</h1>
+    </main>
+  </Container>
 </LayoutDefalt>
