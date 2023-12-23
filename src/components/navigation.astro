@@ -1,20 +1,20 @@
 ---
-
+const routes = [
+  { name: "หน้าแรก", url: "/" },
+  { name: "บทความ", url: "/blog" },
+  { name: "ผลงาน", url: "/works" },
+  { name: "เกี่ยวกับฉัน", url: "/about" },
+];
 ---
 
 <nav class="flex justify-end py-4">
   <ul class="flex gap-4">
-    <li>
-      <a href="/">หน้าแรก</a>
-    </li>
-    <li>
-      <a href="/blog">บทความ</a>
-    </li>
-    <li>
-      <a href="/works">ผลงาน</a>
-    </li>
-    <li>
-      <a href="/about">เกี่ยวกับฉัน</a>
-    </li>
+    {
+      routes.map(({ name, url }) => (
+        <li>
+          <a href={url}>{name}</a>
+        </li>
+      ))
+    }
   </ul>
 </nav>
