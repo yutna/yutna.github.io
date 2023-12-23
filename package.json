@@ -11,7 +11,7 @@
     "start": "astro dev"
   },
   "dependencies": {
-    "@astrojs/check": "0.3.3",
+    "@astrojs/check": "0.3.4",
     "@astrojs/tailwind": "5.0.4",
     "@fontsource/kanit": "5.0.18",
     "@tailwindcss/aspect-ratio": "0.4.2",
