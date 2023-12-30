@@ -64,7 +64,11 @@ redistributed under the terms specified in the [LICENSE][7] file.
 
 ## About
 
-![Yutna logo](/public/assets/images/brand/yutna-logo-white-small.png "Yutna logo")
+<img
+  alt="Yutna logo"
+  src="./public/assets/images/brand/yutna-logo-white.svg"
+  width="132"
+/>
 
 This project is maintained by [Yutna][8]
 
