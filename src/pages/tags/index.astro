@@ -1,7 +1,9 @@
 ---
 import Container from "@/components/container.astro";
 import LayoutDefault from "@/layouts/layout-default.astro";
+import { getTags } from "@/lib/get-tags";
 
+const tags = await getTags();
 const pageTitle = "แท็กทั้งหมด";
 ---
 
@@ -10,9 +12,18 @@ const pageTitle = "แท็กทั้งหมด";
     <main class="my-4">
       <h1>{pageTitle}</h1>
       <ul>
-        <li><a href="/tags/a">a</a></li>
-        <li><a href="/tags/b">b</a></li>
-        <li><a href="/tags/c">c</a></li>
+        {
+          tags.map((tag) => (
+            <li>
+              <a
+                class="hover:text-blue-400 hover:underline"
+                href={`/tags/${tag}`}
+              >
+                {tag}
+              </a>
+            </li>
+          ))
+        }
       </ul>
     </main>
   </Container>
