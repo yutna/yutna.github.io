@@ -1,0 +1,30 @@
+---
+import Container from "@/components/container.astro";
+import LayoutDefault from "@/layouts/layout-default.astro";
+import { getTags } from "@/lib/get-tags";
+
+const tags = await getTags();
+const pageTitle = "แท็กทั้งหมด";
+---
+
+<LayoutDefault pageTitle={pageTitle}>
+  <Container>
+    <main class="my-4">
+      <h1>{pageTitle}</h1>
+      <ul>
+        {
+          tags.map((tag) => (
+            <li>
+              <a
+                class="hover:text-blue-400 hover:underline"
+                href={`/tags/${tag}`}
+              >
+                {tag}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </main>
+  </Container>
+</LayoutDefault>
