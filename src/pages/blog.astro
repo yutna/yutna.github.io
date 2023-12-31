@@ -1,6 +1,10 @@
 ---
+import { getCollection } from "astro:content";
+
 import Container from "@/components/container.astro";
 import LayoutDefault from "@/layouts/layout-default.astro";
+
+const posts = await getCollection("posts");
 
 const pageTitle = "บทความ";
 ---
@@ -9,6 +13,20 @@ const pageTitle = "บทความ";
   <Container>
     <main class="my-4">
       <h1>{pageTitle}</h1>
+      <ul class="mt-8 flex flex-col gap-4">
+        {
+          posts.map((post) => (
+            <li>
+              <a
+                class="hover:cursor-pointer hover:text-blue-400 hover:underline"
+                href={post.slug}
+              >
+                {post.data.title}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
     </main>
   </Container>
 </LayoutDefault>

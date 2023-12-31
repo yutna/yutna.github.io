@@ -1,0 +1,33 @@
+---
+import { getCollection } from "astro:content";
+
+import Container from "@/components/container.astro";
+import LayoutDefault from "@/layouts/layout-default.astro";
+
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  post: CollectionEntry<"posts">;
+}
+export async function getStaticPaths() {
+  const posts = await getCollection("posts");
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<LayoutDefault pageTitle={post.data.title}>
+  <Container>
+    <article class="my-4">
+      <h1>{post.data.title}</h1>
+      <div class="prose mt-8 max-w-none">
+        <Content />
+      </div>
+    </article>
+  </Container>
+</LayoutDefault>
