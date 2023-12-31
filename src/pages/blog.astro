@@ -1,10 +1,10 @@
 ---
-import { getCollection } from "astro:content";
-
 import Container from "@/components/container.astro";
 import LayoutDefault from "@/layouts/layout-default.astro";
+import { getPosts } from "@/lib/get-posts";
+import { formatPostSlugPath } from "@/utils/format-post-slug-path";
 
-const posts = await getCollection("posts");
+const posts = await getPosts();
 
 const pageTitle = "บทความ";
 ---
@@ -19,7 +19,7 @@ const pageTitle = "บทความ";
             <li>
               <a
                 class="hover:cursor-pointer hover:text-blue-400 hover:underline"
-                href={post.slug}
+                href={formatPostSlugPath(post.data.publishedDate, post.slug)}
               >
                 {post.data.title}
               </a>

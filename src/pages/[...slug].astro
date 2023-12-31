@@ -1,18 +1,21 @@
 ---
-import { getCollection } from "astro:content";
-
 import Container from "@/components/container.astro";
 import LayoutDefault from "@/layouts/layout-default.astro";
+import { getPosts } from "@/lib/get-posts";
+import { formatPostSlugPath } from "@/utils/format-post-slug-path";
 
 import type { CollectionEntry } from "astro:content";
 
 interface Props {
   post: CollectionEntry<"posts">;
 }
+
 export async function getStaticPaths() {
-  const posts = await getCollection("posts");
+  const posts = await getPosts();
+  const slug = formatPostSlugPath(post.data.publishedDate, post.slug);
+
   return posts.map((post) => ({
-    params: { slug: post.slug },
+    params: { slug },
     props: { post },
   }));
 }
