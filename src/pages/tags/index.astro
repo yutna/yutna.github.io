@@ -1,14 +1,19 @@
 ---
 import Container from "@/components/container.astro";
-import LayoutDefalt from "@/layouts/layout-defalt.astro";
+import LayoutDefault from "@/layouts/layout-default.astro";
 
 const pageTitle = "แท็กทั้งหมด";
 ---
 
-<LayoutDefalt pageTitle={pageTitle}>
+<LayoutDefault pageTitle={pageTitle}>
   <Container>
     <main class="my-4">
       <h1>{pageTitle}</h1>
+      <ul>
+        <li><a href="/tags/a">a</a></li>
+        <li><a href="/tags/b">b</a></li>
+        <li><a href="/tags/c">c</a></li>
+      </ul>
     </main>
   </Container>
-</LayoutDefalt>
+</LayoutDefault>

@@ -1,4 +1,6 @@
 ---
+import Container from "@/components/container.astro";
+
 const routes = [
   { name: "หน้าแรก", url: "/" },
   { name: "บทความ", url: "/blog" },
@@ -7,14 +9,18 @@ const routes = [
 ];
 ---
 
-<nav class="flex justify-end py-4">
-  <ul class="flex gap-4">
-    {
-      routes.map(({ name, url }) => (
-        <li>
-          <a href={url}>{name}</a>
-        </li>
-      ))
-    }
-  </ul>
+<nav class="border-b border-solid border-b-black">
+  <Container>
+    <div class="flex justify-end py-4">
+      <ul class="flex gap-4">
+        {
+          routes.map(({ name, url }) => (
+            <li>
+              <a href={url}>{name}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </Container>
 </nav>
