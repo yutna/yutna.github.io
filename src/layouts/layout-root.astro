@@ -2,6 +2,8 @@
 import { ViewTransitions } from "astro:transitions";
 
 import Maintenance from "@/components/maintenance.astro";
+
+import { IS_MAINTENANCE_MODE } from "@/config/env";
 import "@/config/fonts";
 
 export interface Props {
@@ -9,7 +11,6 @@ export interface Props {
 }
 
 const { pageTitle } = Astro.props;
-const isMaintenanceMode = false;
 ---
 
 <!doctype html>
@@ -22,7 +23,7 @@ const isMaintenanceMode = false;
     <title>{pageTitle} | Yutna</title>
     <ViewTransitions />
   </head>
-  <body>
-    {isMaintenanceMode ? <Maintenance /> : <slot />}
+  <body class="bg-neutral-50">
+    {IS_MAINTENANCE_MODE ? <Maintenance /> : <slot />}
   </body>
 </html>
