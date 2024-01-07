@@ -28,7 +28,7 @@ export default {
         "milk": "#fafaf5",
       },
       fontFamily: {
-        sans: ["Kanit", ...defaultTheme.fontFamily.sans],
+        sans: ["Public Sans Variable", ...defaultTheme.fontFamily.sans],
       },
     },
   },
