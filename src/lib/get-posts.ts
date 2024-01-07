@@ -4,7 +4,9 @@ import _ from "lodash-es";
 import type { CollectionEntry } from "astro:content";
 
 export async function getPosts() {
-  const posts = await getCollection("posts");
+  const posts = await getCollection("posts", ({ id }) => {
+    return id.startsWith("th/");
+  });
 
   return _.chain(posts)
     .filter(publishedContent)
