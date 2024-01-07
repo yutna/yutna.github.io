@@ -1,0 +1,18 @@
+---
+import NavigationMenuItem from "@/components/navigation-menu-item.astro";
+import type { Props as NavigationMenuItemProps } from "@/components/navigation-menu-item.astro";
+
+export interface Props {
+  menuItems: NavigationMenuItemProps[];
+}
+
+const { menuItems } = Astro.props;
+---
+
+<ul>
+  {
+    menuItems.map(({ name, url }) => (
+      <NavigationMenuItem name={name} url={url} />
+    ))
+  }
+</ul>

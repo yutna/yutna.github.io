@@ -1,5 +1,5 @@
 ---
-import Navigation from "@/components/navigation.astro";
+import NavigationBar from "@/components/navigation-bar.astro";
 import LayoutRoot from "@/layouts/layout-root.astro";
 
 import type { Props as LayoutRootProps } from "@/layouts/layout-root.astro";
@@ -10,6 +10,6 @@ const { pageTitle } = Astro.props;
 ---
 
 <LayoutRoot pageTitle={pageTitle}>
-  <Navigation />
+  <NavigationBar />
   <slot />
 </LayoutRoot>
