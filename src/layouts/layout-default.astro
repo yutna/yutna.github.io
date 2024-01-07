@@ -1,15 +1,36 @@
 ---
-import Navigation from "@/components/navigation.astro";
-import LayoutRoot from "@/layouts/layout-root.astro";
+import { ViewTransitions } from "astro:transitions";
 
-import type { Props as LayoutRootProps } from "@/layouts/layout-root.astro";
+import NavigationBar from "@/components/navigation-bar.astro";
+import "@/config/fonts";
 
-export interface Props extends LayoutRootProps {}
+export interface Props {
+  pageTitle: string;
+  pageDescription: string;
+}
 
-const { pageTitle } = Astro.props;
+const { pageTitle, pageDescription } = Astro.props;
+const menuItems = [
+  { name: "หน้าแรก", url: "/" },
+  { name: "บทความ", url: "/blog" },
+  { name: "ผลงาน", url: "/works" },
+  { name: "เกี่ยวกับฉัน", url: "/about" },
+];
 ---
 
-<LayoutRoot pageTitle={pageTitle}>
-  <Navigation />
-  <slot />
-</LayoutRoot>
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle} | Yutna</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <ViewTransitions />
+  </head>
+  <body>
+    <NavigationBar menuItems={menuItems} />
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,22 @@
+---
+export interface INavigationMenuItem {
+  name: string;
+  url: string;
+}
+
+export interface Props {
+  menuItems: INavigationMenuItem[];
+}
+
+const { menuItems } = Astro.props;
+---
+
+<ul>
+  {
+    menuItems.map(({ name, url }) => (
+      <li>
+        <a href={url}>{name}</a>
+      </li>
+    ))
+  }
+</ul>

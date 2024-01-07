@@ -21,19 +21,16 @@ const { posts } = Astro.props;
 const pageTitle = `แท็ก - ${tag}`;
 ---
 
-<LayoutDefault pageTitle={pageTitle}>
+<LayoutDefault pageTitle={pageTitle} pageDescription="">
   <Container>
-    <main class="my-4">
+    <main>
       <h1>{pageTitle}</h1>
-      <h2 class="my-4">บทความที่เกี่ยวกับแท็ก {tag} ทั้งหมด</h2>
-      <ul class="my-4 flex flex-col gap-4">
+      <h2>บทความที่เกี่ยวกับแท็ก {tag} ทั้งหมด</h2>
+      <ul>
         {
           posts.map((post) => (
             <li>
-              <a
-                class="hover:text-blue-400 hover:underline"
-                href={formatPostSlugPath(post.data.publishedDate, post.slug)}
-              >
+              <a href={formatPostSlugPath(post.data.publishedDate, post.slug)}>
                 {post.data.title}
               </a>
             </li>

@@ -1,0 +1,16 @@
+---
+import Container from "@/components/container.astro";
+import NavigationMenu from "@/components/navigation-menu.astro";
+
+import type { Props as NavigationMenuProps } from "@/components/navigation-menu.astro";
+
+interface Props extends NavigationMenuProps {}
+
+const { menuItems } = Astro.props;
+---
+
+<nav>
+  <Container>
+    <NavigationMenu menuItems={menuItems} />
+  </Container>
+</nav>

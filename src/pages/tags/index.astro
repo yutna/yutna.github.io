@@ -7,20 +7,15 @@ const tags = await getTags();
 const pageTitle = "แท็กทั้งหมด";
 ---
 
-<LayoutDefault pageTitle={pageTitle}>
+<LayoutDefault pageTitle={pageTitle} pageDescription="">
   <Container>
-    <main class="my-4">
+    <main>
       <h1>{pageTitle}</h1>
       <ul>
         {
           tags.map((tag) => (
             <li>
-              <a
-                class="hover:text-blue-400 hover:underline"
-                href={`/tags/${tag}`}
-              >
-                {tag}
-              </a>
+              <a href={`/tags/${tag}`}>{tag}</a>
             </li>
           ))
         }
