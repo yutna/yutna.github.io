@@ -27,9 +27,6 @@ export default {
         "lavender-indigo": "#9747ff",
         "milk": "#fafaf5",
       },
-      fontFamily: {
-        sans: ["Kanit", ...defaultTheme.fontFamily.sans],
-      },
     },
   },
 };

@@ -23,3 +23,11 @@ import "@fontsource/kanit/600-italic.css";
 import "@fontsource/kanit/700-italic.css";
 import "@fontsource/kanit/800-italic.css";
 import "@fontsource/kanit/900-italic.css";
+
+/*
+ * ===========================================================================
+ *                                 Public Sans
+ * ===========================================================================
+ */
+import "@fontsource-variable/public-sans";
+import "@fontsource-variable/public-sans/wght-italic.css";
