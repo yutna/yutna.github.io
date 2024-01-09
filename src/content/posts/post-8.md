@@ -1,6 +1,6 @@
 ---
 title: "Post 8"
-isDraft: false
+draft: false
 publishedDate: 2007-02-22T06:08:20.209Z
 tags: ["golang", "csharp", "git", "oop", "typescript"]
 ---

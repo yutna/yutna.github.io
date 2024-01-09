@@ -1,7 +1,8 @@
-import { getCollection } from "astro:content";
 import _ from "lodash-es";
+import type { CollectionEntry } from "astro:content";
 
-export async function getTags(): Promise<string[]> {
-  const posts = await getCollection("posts");
+type post = CollectionEntry<"posts">;
+
+export function getTags(posts: post[]): string[] {
   return _.chain(posts).map("data.tags").flatten().sort().uniq().value();
 }

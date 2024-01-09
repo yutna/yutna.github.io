@@ -1,6 +1,6 @@
 ---
 title: "Post 1"
-isDraft: false
+draft: false
 publishedDate: 1995-10-26T23:51:33.602Z
 tags: ["astro", "beginner", "elixir", "ruby", "react", "vue", "golang", "git"]
 ---

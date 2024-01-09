@@ -3,11 +3,11 @@ import Container from "@/components/container.astro";
 import LayoutDefault from "@/layouts/layout-default.astro";
 import { getPosts } from "@/lib/get-posts";
 import { getTags } from "@/lib/get-tags";
-import { formatPostSlugPath } from "@/utils/format-post-slug-path";
+import { formatSlug } from "@/utils/format-slug";
 
 export async function getStaticPaths() {
   const allPosts = await getPosts();
-  const tags = await getTags();
+  const tags = getTags(allPosts);
 
   return tags.map((tag) => {
     const posts = allPosts.filter((post) => post.data.tags.includes(tag));
@@ -17,23 +17,18 @@ export async function getStaticPaths() {
 
 const { tag } = Astro.params;
 const { posts } = Astro.props;
-
-const pageTitle = `แท็ก - ${tag}`;
 ---
 
-<LayoutDefault pageTitle={pageTitle}>
+<LayoutDefault>
   <Container>
-    <main class="my-4">
-      <h1>{pageTitle}</h1>
-      <h2 class="my-4">บทความที่เกี่ยวกับแท็ก {tag} ทั้งหมด</h2>
-      <ul class="my-4 flex flex-col gap-4">
+    <main>
+      <h1>Tag - {tag}</h1>
+      <h2>Relevant</h2>
+      <ul>
         {
           posts.map((post) => (
             <li>
-              <a
-                class="hover:text-blue-400 hover:underline"
-                href={formatPostSlugPath(post.data.publishedDate, post.slug)}
-              >
+              <a href={formatSlug(post.data.publishedDate, post.slug)}>
                 {post.data.title}
               </a>
             </li>

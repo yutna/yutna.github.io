@@ -1,6 +1,6 @@
 ---
 title: "Post 11"
-isDraft: false
+draft: false
 publishedDate: 2018-09-29T03:38:00.810Z
 tags: ["oop", "java", "astro", "javascript"]
 ---

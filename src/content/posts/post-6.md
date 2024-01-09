@@ -1,6 +1,6 @@
 ---
 title: "Post 6"
-isDraft: false
+draft: false
 publishedDate: 2005-12-31T16:46:08.013Z
 tags:
   [

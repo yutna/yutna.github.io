@@ -2,7 +2,7 @@
 import Container from "@/components/container.astro";
 import LayoutDefault from "@/layouts/layout-default.astro";
 import { getPosts } from "@/lib/get-posts";
-import { formatPostSlugPath } from "@/utils/format-post-slug-path";
+import { formatSlug } from "@/utils/format-slug";
 
 import type { CollectionEntry } from "astro:content";
 
@@ -14,7 +14,7 @@ export async function getStaticPaths() {
   const posts = await getPosts();
 
   return posts.map((post) => {
-    const slug = formatPostSlugPath(post.data.publishedDate, post.slug);
+    const slug = formatSlug(post.data.publishedDate, post.slug);
 
     return {
       params: { slug },
@@ -27,9 +27,9 @@ const { post } = Astro.props;
 const { Content } = await post.render();
 ---
 
-<LayoutDefault pageTitle={post.data.title}>
+<LayoutDefault>
   <Container>
-    <article class="my-4">
+    <article>
       <h1>{post.data.title}</h1>
       <div class="prose mt-8 max-w-none">
         <Content />
@@ -38,18 +38,13 @@ const { Content } = await post.render();
 
     <section>
       <h2>
-        <a class="hover:text-blue-400 hover:underline" href="/tags">แท็ก</a>
+        <a href="/tags">Tag</a>
       </h2>
-      <ul class="my-4 flex gap-4">
+      <ul>
         {
           post.data.tags.map((tag) => (
             <li>
-              <a
-                class="hover:text-blue-400 hover:underline"
-                href={`/tags/${tag}`}
-              >
-                {tag}
-              </a>
+              <a href={`/tags/${tag}`}>{tag}</a>
             </li>
           ))
         }

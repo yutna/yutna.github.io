@@ -1,6 +1,6 @@
 ---
 title: "Post 3"
-isDraft: false
+draft: false
 publishedDate: 2000-03-28T14:45:11.310Z
 tags: ["csharp", "vue", "java"]
 ---

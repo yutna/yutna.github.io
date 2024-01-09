@@ -1,6 +1,6 @@
 ---
 title: "Post 2"
-isDraft: false
+draft: false
 publishedDate: 1998-05-21T23:27:55.353Z
 tags: ["astro", "typescript"]
 ---

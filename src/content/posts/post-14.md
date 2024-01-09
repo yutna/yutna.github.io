@@ -1,6 +1,6 @@
 ---
 title: "Post 14"
-isDraft: false
+draft: false
 publishedDate: 2020-05-04T14:36:28.863Z
 tags: ["vue", "javascript", "beginner"]
 ---

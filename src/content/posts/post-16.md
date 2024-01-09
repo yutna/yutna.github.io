@@ -1,8 +1,8 @@
 ---
-title: "Post 13"
-draft: false
-publishedDate: 2020-03-01T13:48:25.884Z
-tags: ["beginner", "ruby", "vue", "react", "typescript", "astro"]
+title: "Post 16"
+draft: true
+publishedDate: 2024-01-09T05:46:44.889Z
+tags: ["javascript", "beginner"]
 ---
 
 <p class="lead">

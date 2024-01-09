@@ -1,15 +1,20 @@
 ---
+import "@fontsource-variable/public-sans";
+import "@fontsource-variable/public-sans/wght-italic.css";
+import { ViewTransitions } from "astro:transitions";
+
+import Head from "@/components/head.astro";
 import NavigationBar from "@/components/navigation-bar.astro";
-import LayoutRoot from "@/layouts/layout-root.astro";
-
-import type { Props as LayoutRootProps } from "@/layouts/layout-root.astro";
-
-export interface Props extends LayoutRootProps {}
-
-const { pageTitle } = Astro.props;
 ---
 
-<LayoutRoot pageTitle={pageTitle}>
-  <NavigationBar />
-  <slot />
-</LayoutRoot>
+<!doctype html>
+<html lang="en">
+  <head>
+    <Head />
+    <ViewTransitions />
+  </head>
+  <body class="bg-neutral-50">
+    <NavigationBar />
+    <slot />
+  </body>
+</html>
