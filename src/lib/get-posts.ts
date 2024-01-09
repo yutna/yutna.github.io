@@ -16,7 +16,7 @@ export async function getPosts() {
 // Internal functions
 
 function publishedContent(post: CollectionEntry<"posts">) {
-  return import.meta.env.PROD ? !post.data.isDraft : true;
+  return import.meta.env.PROD ? !post.data.draft : true;
 }
 
 function publishedDate(post: CollectionEntry<"posts">) {

@@ -1,10 +1,31 @@
 ---
-
+import Container from "@/components/container.astro";
 ---
 
-<main class="flex h-screen w-screen flex-col items-center justify-center gap-5">
-  <h1 class="text-6xl">ปิดปรับปรุงชั่วคราว</h1>
-  <p class="text-3xl">
-    เว็บไซต์กำลังอยู่ระหว่างการพัฒนาครับ แล้วเจอกันเร็วๆนี้ ☺️
-  </p>
-</main>
+<Container>
+  <div class="flex h-dvh flex-col items-center justify-center">
+    <article>
+      <h1 class="text-center text-2xl uppercase text-neutral-800">
+        Under Maintenance
+      </h1>
+      <p class="mt-6 text-center text-neutral-600">
+        I'm currently performing scheduled maintenance to enhance your
+        experience. My website will be back shortly.
+      </p>
+      <p class="mt-6 text-center text-neutral-600">
+        During this time, you might experience temporary unavailability. I
+        apologize for any inconvenience this may cause. Thank you for your
+        patience.
+      </p>
+      <p class="mt-6 text-center text-neutral-600">
+        For urgent matters or assistance, please contact me at
+        <a
+          class="underline hover:text-neutral-900"
+          href="mailto:yutthana.s@outlook.com"
+        >
+          yutthana.s@outlook.com</a
+        >.
+      </p>
+    </article>
+  </div>
+</Container>

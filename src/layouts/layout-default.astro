@@ -1,15 +1,19 @@
 ---
-import Navigation from "@/components/navigation.astro";
-import LayoutRoot from "@/layouts/layout-root.astro";
+import "@fontsource-variable/public-sans";
+import "@fontsource-variable/public-sans/wght-italic.css";
+import { ViewTransitions } from "astro:transitions";
 
-import type { Props as LayoutRootProps } from "@/layouts/layout-root.astro";
-
-export interface Props extends LayoutRootProps {}
-
-const { pageTitle } = Astro.props;
+import Head from "@/components/head.astro";
+import Maintenance from "@/components/maintenance.astro";
 ---
 
-<LayoutRoot pageTitle={pageTitle}>
-  <Navigation />
-  <slot />
-</LayoutRoot>
+<!doctype html>
+<html lang="en">
+  <head>
+    <Head />
+    <ViewTransitions />
+  </head>
+  <body class="bg-neutral-50">
+    <Maintenance />
+  </body>
+</html>
