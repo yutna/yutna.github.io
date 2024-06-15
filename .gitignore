@@ -1,0 +1,13 @@
+# Jekyll
+.bundle/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+_site/
+vendor/
+
+# My local Jekyll setup
+.tool-versions
+Gemfile
+Gemfile.lock
+bin/
