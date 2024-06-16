@@ -1,0 +1,21 @@
+exclude:
+  - .jekyll-cache
+  - .sass-cache
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - bin/
+  - gemfiles
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+plugins:
+  - jekyll-feed
+  - jekyll-github-metadata
+  - jekyll-sitemap
+
+timezone: Asia/Bangkok
+strict_front_matter: true
