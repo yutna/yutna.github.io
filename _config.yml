@@ -1,0 +1,70 @@
+title: "Yutthana Siphuengchai"
+description: "Personal site of Yutthana Siphuengchai, a software engineer based in Chiangmai, Thailand."
+url: "https://yutna.github.io"
+baseurl: ""
+lang: en
+locale: en_US
+timezone: Asia/Bangkok
+
+author:
+  name: "Yutthana Siphuengchai"
+  url: "https://github.com/yutna"
+
+social:
+  name: "Yutthana Siphuengchai"
+  links:
+    - "https://github.com/yutna"
+
+seo:
+  indexable: false
+
+markdown: kramdown
+permalink: pretty
+strict_front_matter: true
+
+liquid:
+  error_mode: strict
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+sass:
+  style: compressed
+  sourcemap: never
+
+exclude:
+  - AGENTS.md
+  - CODE_OF_CONDUCT.md
+  - CONTRIBUTING.md
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - SECURITY.md
+  - SUPPORT.md
+  - VERSION
+  - docs
+  - scripts
+  - tests
+  - node_modules
+  - package.json
+  - package-lock.json
+  - playwright.config.mjs
+  - tsconfig.json
+  - vendor
+  - artifacts
+  - test-results
+  - .github
+  - .mise.toml
+  - .opencode
+
+include:
+  - .nojekyll
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"

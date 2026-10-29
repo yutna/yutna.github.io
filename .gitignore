@@ -17,6 +17,24 @@ Thumbs.db
 *.log
 logs/
 
+# --- Jekyll ---
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# --- Node and tests ---
+node_modules/
+npm-debug.log*
+artifacts/
+test-results/
+playwright-report/
+
+# --- Design source stays outside the repository ---
+design/*.fig
+design/*.svg
+
+
 # --- Ruby (github/gitignore) ---
 *.gem
 *.rbc

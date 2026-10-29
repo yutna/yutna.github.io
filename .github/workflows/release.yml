@@ -9,8 +9,8 @@ jobs:
     permissions:
       contents: write
       issues: write
-    # with:
-    #   preflight: test "$(jq -r .version package.json)" = "$VERSION"
+    with:
+      preflight: test "$(cat VERSION)" = "$VERSION"
   # publish:                                 # stack-specific, optional
   #   needs: release
   #   if: needs.release.outputs.released == 'true'
