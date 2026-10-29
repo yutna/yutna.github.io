@@ -34,14 +34,18 @@ The toolchain is pinned with [mise](https://mise.jdx.dev/).
 mise install
 mise exec -- bundle install
 mise exec -- npm ci
-mise exec -- bundle exec jekyll serve
+mise exec -- npm run serve
 ```
 
-Open <http://127.0.0.1:4000/>. To build the production artifact:
+Open <http://127.0.0.1:4000/>. To build the production artifact and preview it
+the way GitHub Pages serves it:
 
 ```bash
 JEKYLL_ENV=production mise exec -- bundle exec jekyll build
+mise exec -- npm run preview
 ```
+
+The preview runs at <http://127.0.0.1:4173/>.
 
 ## Checks
 
@@ -49,8 +53,21 @@ JEKYLL_ENV=production mise exec -- bundle exec jekyll build
 mise exec -- npm run test:all
 ```
 
-This builds the site, validates HTML and internal links, checks the SEO
-guards, type-checks JavaScript, and runs the unit and browser tests.
+This builds the site, type-checks the JavaScript, validates HTML, checks
+titles, descriptions, canonicals, internal links, `noindex`, `robots.txt`, and
+the sitemap, then runs the unit tests and the Playwright suite at desktop and
+mobile widths. The browser tests include axe accessibility checks and verify
+that no third-party runtime request is made.
+
+Individual entry points:
+
+```bash
+mise exec -- npm run lint:js        # tsc --noEmit
+mise exec -- npm run check:static  # built-site metadata and link checks
+mise exec -- npm run check:html    # html-validate
+mise exec -- npm run test:unit     # node:test
+mise exec -- npm run test:e2e      # Playwright + axe
+```
 
 ## Contributing
 
