@@ -20,11 +20,30 @@ jobs:
         run: |
           bash <(curl -sSL https://raw.githubusercontent.com/rhysd/actionlint/v1.7.12/scripts/download-actionlint.bash) 1.7.12
           ./actionlint -color
-  # --- stack-specific jobs go here (lint / test / build) ---
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "4.0.7"
+          bundler-cache: true
+      - name: Build the site
+        env:
+          JEKYLL_ENV: production
+        run: bundle exec jekyll build --trace
+      - uses: actions/upload-artifact@v7
+        with:
+          name: site
+          path: _site
+          include-hidden-files: true
+          if-no-files-found: error
   # ci-ok is the one required check: add every job above to its needs.
   ci-ok:
     if: always()
-    needs: [actionlint]
+    needs: [actionlint, build]
     runs-on: ubuntu-latest
     steps:
       - name: All required jobs passed

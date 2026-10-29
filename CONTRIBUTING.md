@@ -28,4 +28,23 @@ on GitHub are the changelog.
 
 ## Local development
 
-<!-- Stack-specific setup, build and test commands go here. -->
+The toolchain is pinned with [mise](https://mise.jdx.dev/).
+
+```bash
+mise install
+mise exec -- bundle install
+mise exec -- npm ci
+mise exec -- bundle exec jekyll serve
+```
+
+Open <http://127.0.0.1:4000/>. Build the production artifact with
+
+```bash
+JEKYLL_ENV=production mise exec -- bundle exec jekyll build
+```
+
+Run the full check suite with `mise exec -- npm run test:all`.
+
+Search indexing is off during the foundation stage. Keep the `noindex`
+metadata, the `robots.txt` rules, and the SEO checks in place until the site
+is explicitly opened for indexing.
