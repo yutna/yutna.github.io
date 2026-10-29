@@ -1,0 +1,30 @@
+<div class="deck" data-deck role="group" aria-labelledby="layers-title">
+  <h2 class="visually-hidden" id="layers-title">The layers ahead</h2>
+  <div class="deck__stage" data-deck-stage>
+    {%- for layer in site.data.layers %}
+    <button
+      class="layer layer--{{ layer.tone }}{% if forloop.first %} is-active{% endif %}"
+      type="button"
+      data-layer="{{ forloop.index0 }}"
+      aria-pressed="{{ forloop.first }}"
+      style="--i: {{ forloop.index0 }}; --d: {{ forloop.index0 | minus: 1.5 | abs }}"
+    >
+      <span class="layer__card">
+        <span class="layer__top">
+          <span class="layer__index">{{ layer.index }}</span>
+          <span class="layer__dot" aria-hidden="true"></span>
+        </span>
+        <span class="layer__name">{{ layer.name }}</span>
+        <span class="layer__note">{{ layer.note }}</span>
+        <span class="layer__ghost" aria-hidden="true">{{ layer.index }}</span>
+        <span class="layer__foot">
+          <span class="layer__status">{{ layer.status }}</span>
+          <span class="layer__arrow" aria-hidden="true">↗</span>
+        </span>
+      </span>
+    </button>
+    {%- endfor %}
+  </div>
+  <p class="deck__hint">Four layers, one foundation</p>
+  <p class="visually-hidden" aria-live="polite" data-deck-status></p>
+</div>

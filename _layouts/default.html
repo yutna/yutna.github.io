@@ -3,10 +3,14 @@
 <head>
 {% include head.html %}
 </head>
-<body>
+<body class="{{ page.body_class | default: 'page' }}">
 <a class="skip-link" href="#main">Skip to content</a>
+<div class="grain" aria-hidden="true"></div>
+{% include header.html %}
 <main id="main">
 {{ content }}
 </main>
+{% include footer.html %}
+<script type="module" src="{{ '/assets/js/main.mjs' | relative_url }}"></script>
 </body>
 </html>

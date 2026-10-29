@@ -7,7 +7,8 @@ import {
   fileCandidates,
   isSkippableUrl,
   parseSrcset,
-  plural
+  plural,
+  pngSize
 } from '../../scripts/lib/site.mjs';
 
 test('containsNoindex reads a robots directive', () => {
@@ -56,4 +57,21 @@ test('plural stays readable at one', () => {
   assert.equal(plural(1, 'page'), '1 page');
   assert.equal(plural(2, 'page'), '2 pages');
   assert.equal(plural(0, 'file'), '0 files');
+});
+
+test('pngSize reads the IHDR dimensions', () => {
+  const png = Buffer.alloc(24);
+  Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]).copy(png, 0);
+  png.writeUInt32BE(13, 8);
+  png.write('IHDR', 12, 'ascii');
+  png.writeUInt32BE(1200, 16);
+  png.writeUInt32BE(630, 20);
+  assert.deepEqual(pngSize(png), { width: 1200, height: 630 });
+});
+
+test('pngSize rejects anything that is not a PNG header', () => {
+  assert.equal(pngSize(Buffer.from('not a png at all')), null);
+  assert.equal(pngSize(Buffer.alloc(24)), null);
+  const truncated = Buffer.alloc(12);
+  assert.equal(pngSize(truncated), null);
 });

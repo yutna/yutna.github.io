@@ -63,6 +63,22 @@ export const containsThai = (text) => /[\u0e00-\u0e7f]/.test(text);
 export const containsLiquid = (text) => /\{\{|\{%/.test(text);
 
 /**
+ * Read the pixel size from a PNG header. Only the signature and the IHDR
+ * chunk are inspected, which is enough to police the social card size
+ * without decoding the image.
+ *
+ * @param {Buffer} buffer
+ * @returns {{ width: number, height: number } | null}
+ */
+export const pngSize = (buffer) => {
+  if (buffer.length < 24) return null;
+  if (buffer.readUInt32BE(0) !== 0x89504e47) return null;
+  if (buffer.readUInt32BE(4) !== 0x0d0a1a0a) return null;
+  if (buffer.toString('ascii', 12, 16) !== 'IHDR') return null;
+  return { width: buffer.readUInt32BE(16), height: buffer.readUInt32BE(20) };
+};
+
+/**
  * @param {number} count
  * @param {string} noun
  * @returns {string}

@@ -17,13 +17,17 @@ import {
   fileCandidates,
   isSkippableUrl,
   parseSrcset,
-  plural
+  plural,
+  pngSize
 } from './lib/site.mjs';
 
 const SITE = '_site';
 const ORIGIN = 'https://yutna.github.io';
 const TITLE_LIMIT = 65;
 const DESCRIPTION_LIMIT = 160;
+const CSS_BUDGET = 40 * 1024;
+const JS_BUDGET = 15 * 1024;
+const OG_SIZE = { width: 1200, height: 630 };
 
 /** @type {string[]} */
 const failures = [];
@@ -191,6 +195,10 @@ const checkPage = async (file, html) => {
     }
   });
 
+  const ogImage = $('meta[property="og:image"]').attr('content');
+  if (ogImage) targets.push({ value: ogImage, label: 'og image' });
+  if (url === '/' && !ogImage) fail(`${label}: missing og:image`);
+
   for (const target of targets) {
     const isRuntime = target.label === 'script' || target.label === 'stylesheet';
     const resolved = resolveInternal(target.value, url);
@@ -252,6 +260,39 @@ if (!(await exists(sitemapPath))) {
   }
 }
 
+const ogPath = join(SITE, 'assets/images/og.png');
+if (!(await exists(ogPath))) {
+  fail('missing assets/images/og.png');
+} else {
+  const size = pngSize(await readFile(ogPath));
+  if (!size || size.width !== OG_SIZE.width || size.height !== OG_SIZE.height) {
+    fail(
+      `og.png is ${size ? `${size.width}x${size.height}` : 'not a PNG'}, ` +
+        `expected ${OG_SIZE.width}x${OG_SIZE.height}`
+    );
+  }
+}
+
+/**
+ * @param {string[]} files
+ * @returns {Promise<number>}
+ */
+const totalBytes = async (files) => {
+  const sizes = await Promise.all(files.map(async (file) => (await stat(file)).size));
+  return sizes.reduce((total, size) => total + size, 0);
+};
+
+const cssFiles = allFiles.filter((file) => file.endsWith('.css'));
+const jsFiles = allFiles.filter((file) => file.endsWith('.js') || file.endsWith('.mjs'));
+const cssBytes = await totalBytes(cssFiles);
+const jsBytes = await totalBytes(jsFiles);
+if (cssBytes > CSS_BUDGET) {
+  fail(`CSS is ${(cssBytes / 1024).toFixed(1)} KB (budget ${CSS_BUDGET / 1024} KB)`);
+}
+if (jsBytes > JS_BUDGET) {
+  fail(`JavaScript is ${(jsBytes / 1024).toFixed(1)} KB (budget ${JS_BUDGET / 1024} KB)`);
+}
+
 if (!(await exists(join(SITE, '.nojekyll')))) fail('missing .nojekyll');
 
 if (failures.length) {
@@ -262,5 +303,6 @@ if (failures.length) {
 
 console.log(
   `Static checks passed: ${plural(pages.length, 'page')}, ` +
-    `${indexable ? 'indexing on' : 'indexing off'}, ${plural(allFiles.length, 'file')}.`
+    `${indexable ? 'indexing on' : 'indexing off'}, ${plural(allFiles.length, 'file')}, ` +
+    `CSS ${(cssBytes / 1024).toFixed(1)} KB, JS ${(jsBytes / 1024).toFixed(1)} KB.`
 );

@@ -23,9 +23,15 @@ test('the homepage carries the foundation metadata', async ({ page }) => {
   await expect(page).toHaveTitle(/Yutthana Siphuengchai/);
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
   await expect(page.locator('h1')).toHaveCount(1);
-  await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', /Yutthana Siphuengchai/);
+  await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', /software engineer in Chiangmai/i);
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://yutna.github.io/');
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/);
+  await expect(page.locator('meta[property="og:image"]')).toHaveAttribute(
+    'content',
+    'https://yutna.github.io/assets/images/og.png'
+  );
+  await expect(page.locator('meta[property="og:image:width"]')).toHaveAttribute('content', '1200');
+  await expect(page.locator('meta[property="og:image:height"]')).toHaveAttribute('content', '630');
   expect(errors).toEqual([]);
 });
 
