@@ -2,9 +2,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 {% seo %}
 {% include schema-person.html %}
-{% unless site.seo.indexable %}
+{% if page.noindex or site.seo.indexable == false %}
 <meta name="robots" content="noindex, noarchive, nosnippet, noimageindex">
-{% endunless %}
+{% endif %}
 <meta name="theme-color" content="#f7f4fc">
 <meta name="color-scheme" content="light">
 <link rel="preload" href="{{ '/assets/fonts/bricolage-grotesque-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
