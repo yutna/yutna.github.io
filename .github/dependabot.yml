@@ -32,6 +32,11 @@ updates:
     groups:
       npm:
         update-types: [minor, patch]
+    ignore:
+      # The types track the Node runtime pinned in .mise.toml. A major bump
+      # would describe APIs this site cannot run.
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
     labels: [dependencies]
     assignees: [yutna]
     commit-message:

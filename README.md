@@ -19,6 +19,19 @@ Search indexing is intentionally off. Every page sends `noindex`, and
 `robots.txt` allows crawling so search engines can see that directive. The
 sitemap is generated but not submitted until the site is ready.
 
+## Design
+
+The homepage carries the Layer 00 identity: light lavender paper, violet
+ink, Bricolage Grotesque for display and JetBrains Mono for labels, both
+self-hosted from `assets/fonts/` under the SIL Open Font License. The four
+layer cards are the only interactive element; pointer, touch, and keyboard
+selection are progressively enhanced by `assets/js/main.mjs`, and
+`prefers-reduced-motion` removes the tilt and entrance motion.
+
+The page loads no third-party runtime code and ships about 15 KB of CSS and
+6 KB of JavaScript uncompressed. `scripts/check-site.mjs` enforces a 40 KB
+CSS and 15 KB JavaScript budget, and checks the 1200×630 social card.
+
 ## Built with
 
 - Ruby 4.0.7, Bundler, Jekyll 4.4.1, WEBrick

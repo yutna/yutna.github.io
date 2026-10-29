@@ -27,3 +27,9 @@ test('the 404 page has no serious or critical WCAG A/AA violations', async ({ pa
   const results = await analyze(page, '/missing-page');
   expect(seriousViolations(results.violations), JSON.stringify(results.violations, null, 2)).toEqual([]);
 });
+
+test('the homepage is accessible at tablet width', async ({ page }) => {
+  await page.setViewportSize({ width: 768, height: 1024 });
+  const results = await analyze(page, '/');
+  expect(seriousViolations(results.violations), JSON.stringify(results.violations, null, 2)).toEqual([]);
+});

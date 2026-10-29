@@ -1,0 +1,32 @@
+:root {
+  color-scheme: light;
+
+  --paper: #f7f4fc;
+  --paper-deep: #ece5fa;
+  --surface: #fffdfe;
+  --ink: #17121f;
+  --ink-soft: #453a55;
+  --muted: #6a5f79;
+  --violet: #6c4cf1;
+  --violet-deep: #4f2ee0;
+  --violet-wash: #e9e2ff;
+  --line: rgb(23 18 31 / 10%);
+  --line-strong: rgb(23 18 31 / 18%);
+
+  --font-display: "Bricolage Grotesque", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --page: 76rem;
+  --gutter: clamp(1.15rem, 4vw, 3rem);
+  --radius-card: 1.15rem;
+  --radius-pill: 999px;
+  --deck-step: 3.3rem;
+
+  --shadow-card:
+    0 1px 2px rgb(40 24 90 / 6%),
+    0 26px 50px -34px rgb(52 28 120 / 55%);
+  --shadow-card-lift:
+    0 2px 4px rgb(40 24 90 / 8%),
+    0 40px 70px -32px rgb(52 28 120 / 60%);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}

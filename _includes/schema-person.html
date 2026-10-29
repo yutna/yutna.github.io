@@ -1,0 +1,17 @@
+{%- assign person = site.data.site -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": {{ person.name | jsonify }},
+  "url": {{ site.url | append: '/' | jsonify }},
+  "jobTitle": {{ person.role | jsonify }},
+  "email": {{ person.email | jsonify }},
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Chiangmai",
+    "addressCountry": "TH"
+  },
+  "sameAs": [{{ person.github | jsonify }}]
+}
+</script>
