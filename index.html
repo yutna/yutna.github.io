@@ -5,33 +5,32 @@ title: "Software Engineer"
 description: "Software engineer in Chiangmai, Thailand. A personal site in progress — Work, Writing, About, and Contact are on the way."
 image:
   path: "/assets/images/og.png"
-  alt: "Yutthana Siphuengchai — Layer 00, a personal site in progress"
+  alt: "Yutthana Siphuengchai — software craftsmanship"
   width: 1200
   height: 630
 ---
 <section class="hero">
   <div class="shell hero__grid">
     <div class="hero__copy">
-      <p class="eyebrow">Layer 00 — Foundation</p>
+      <p class="eyebrow">Software craftsmanship</p>
       <h1><span>Yutthana</span><span>Siphuengchai</span></h1>
-      <p class="lede">A personal site in progress. Work, writing, and more are on the way.</p>
+      <p class="lede">I build software you can trust.</p>
       <p class="hero__body">
-        I'm a software engineer who cares about the craft. I build high-quality
-        software that ships, earns users' trust, and stays maintainable.
-      </p>
-      <p class="hero__meta">
-        <span>{{ site.data.site.role }}</span>
-        <span>{{ site.data.site.location }}</span>
-        <span>2026</span>
+        I don't stop at the demo: it ships, works reliably, and stays
+        maintainable.
       </p>
       <div class="actions">
-        <a class="button button--primary" href="{{ site.data.site.github }}" rel="me">
-          Follow the build
+        <a
+          class="button button--primary"
+          href="mailto:{{ site.data.site.email }}"
+          aria-label="Email Yutthana at {{ site.data.site.email }}"
+          title="{{ site.data.site.email }}"
+        >
+          Get in touch
           <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
-            <path d="M4 12 12 4M5.5 4H12v6.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
-        <a class="button button--quiet" href="mailto:{{ site.data.site.email }}">{{ site.data.site.email }}</a>
       </div>
     </div>
     {% include layers.html %}

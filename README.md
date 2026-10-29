@@ -22,11 +22,11 @@ and the launch checklist are in [docs/seo.md](docs/seo.md).
 
 ## Design
 
-The homepage carries the Layer 00 identity: light lavender paper, violet
-ink, Bricolage Grotesque for display and JetBrains Mono for labels, both
+The homepage carries a light lavender and violet identity: pale paper,
+violet ink, Bricolage Grotesque for display and JetBrains Mono for labels, both
 self-hosted from `assets/fonts/` under the SIL Open Font License. The four
-layer cards are the only interactive element; pointer, touch, and keyboard
-selection are progressively enhanced by `assets/js/main.mjs`, and
+cards and the contact CTA are the interactive elements; pointer, touch, and
+keyboard selection are progressively enhanced by `assets/js/main.mjs`, and
 `prefers-reduced-motion` removes the tilt and entrance motion.
 
 The page loads no third-party runtime code and ships about 15 KB of CSS and

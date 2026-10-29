@@ -43,7 +43,7 @@ test('fileCandidates mirrors static hosting order', () => {
 });
 
 test('containsThai guards the English-only rule', () => {
-  assert.equal(containsThai('Layer 00 — Foundation'), false);
+  assert.equal(containsThai('Software craftsmanship'), false);
   assert.equal(containsThai('เลเยอร์'), true);
 });
 

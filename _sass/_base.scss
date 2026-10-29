@@ -7,6 +7,28 @@
 html {
   -webkit-text-size-adjust: 100%;
   scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--violet) var(--paper);
+  scrollbar-gutter: stable;
+}
+
+::-webkit-scrollbar {
+  width: 0.7rem;
+  height: 0.7rem;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--paper);
+}
+
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--violet) 62%, var(--paper));
+  border: 2px solid var(--paper);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--violet);
 }
 
 body {
@@ -29,6 +51,8 @@ body {
 }
 
 main {
+  position: relative;
+  z-index: 1;
   flex: 1 0 auto;
 }
 
@@ -110,9 +134,9 @@ button {
 .grain {
   position: fixed;
   inset: 0;
-  z-index: 1;
+  z-index: 0;
   pointer-events: none;
-  opacity: 0.16;
+  opacity: 0.12;
   mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
   background-size: 160px 160px;
