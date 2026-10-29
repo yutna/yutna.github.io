@@ -71,6 +71,7 @@ GitHub Pages user site at <https://yutna.github.io/> with an empty
 | `assets/css/main.scss` | Design system entry point |
 | `assets/js/` | Progressive enhancement runtime |
 | `scripts/check-site.mjs` | Built-site checks; shell around `scripts/lib/site.mjs` |
+| `docs/seo.md` | Indexing switch, launch checklist, metadata rules |
 | `scripts/lib/site.mjs` | Pure URL, srcset, and noindex helpers |
 | `scripts/serve-site.mjs` | Static preview used by Playwright |
 | `tests/unit/` | Value tests for the pure helpers |
