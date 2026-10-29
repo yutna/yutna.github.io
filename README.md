@@ -17,7 +17,8 @@ scaffolded but not published yet.
 
 Search indexing is intentionally off. Every page sends `noindex`, and
 `robots.txt` allows crawling so search engines can see that directive. The
-sitemap is generated but not submitted until the site is ready.
+sitemap is generated but not submitted until the site is ready. The switch
+and the launch checklist are in [docs/seo.md](docs/seo.md).
 
 ## Design
 
