@@ -38,7 +38,7 @@ test('clicking a layer selects it and announces the change', async ({ page }) =>
   await expect(page.locator('[data-layer="3"]')).toHaveAttribute('aria-pressed', 'true');
   await expect(page.locator('[data-layer="3"]')).toHaveClass(/is-active/);
   await expect(page.locator('[data-layer="0"]')).toHaveAttribute('aria-pressed', 'false');
-  await expect(page.locator('[data-deck-status]')).toHaveText('Contact. Coming in Layer 04');
+  await expect(page.locator('[data-deck-status]')).toHaveText('Contact. Coming soon');
 });
 
 test('arrow keys move the selection and the focus', async ({ page }) => {
@@ -49,11 +49,11 @@ test('arrow keys move the selection and the focus', async ({ page }) => {
 
   await expect(page.locator('[data-layer="1"]')).toBeFocused();
   await expect(page.locator('[data-layer="1"]')).toHaveAttribute('aria-pressed', 'true');
-  await expect(page.locator('[data-deck-status]')).toHaveText('Writing. Coming in Layer 02');
+  await expect(page.locator('[data-deck-status]')).toHaveText('Writing. Coming soon');
 
   await page.keyboard.press('End');
   await expect(page.locator('[data-layer="3"]')).toBeFocused();
-  await expect(page.locator('[data-deck-status]')).toHaveText('Contact. Coming in Layer 04');
+  await expect(page.locator('[data-deck-status]')).toHaveText('Contact. Coming soon');
 
   await page.keyboard.press('ArrowRight');
   await expect(page.locator('[data-layer="0"]')).toBeFocused();

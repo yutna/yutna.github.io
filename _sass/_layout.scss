@@ -29,17 +29,14 @@
 }
 
 .brand__mark {
-  display: grid;
-  place-items: center;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 0.55rem;
-  color: #fff;
-  background: var(--ink);
-  font-family: var(--font-mono);
-  font-size: 0.58rem;
-  letter-spacing: 0.04em;
-  box-shadow: 0 8px 16px -8px rgb(23 18 31 / 70%);
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: #fff;
+  object-fit: cover;
+  box-shadow:
+    0 0 0 1px var(--line),
+    0 10px 20px -12px rgb(23 18 31 / 45%);
 }
 
 .brand__name {
@@ -102,6 +99,8 @@
 /* Footer */
 
 .site-footer {
+  position: relative;
+  z-index: 1;
   margin-top: clamp(2.5rem, 6vw, 4.5rem);
 }
 
@@ -122,6 +121,11 @@
 
 .site-footer__note {
   color: var(--ink-soft);
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-transform: none;
 }
 
 .site-footer__meta {
@@ -194,79 +198,69 @@
   text-wrap: pretty;
 }
 
-.hero__meta {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 1.5rem;
-  color: var(--muted);
-  font-family: var(--font-mono);
-  font-size: 0.58rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.hero__meta span + span::before {
-  content: "/";
-  margin-inline: 0.7rem;
-  color: var(--line-strong);
-}
-
 .actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 0.7rem 1rem;
-  margin-top: 2rem;
+  margin-top: 2.1rem;
 }
 
 .button {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
-  padding: 0.85rem 1.35rem;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3.2rem;
+  padding: 0.9rem 1.5rem;
+  overflow: hidden;
   border-radius: var(--radius-pill);
-  font-size: 0.86rem;
+  font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: -0.01em;
   text-decoration: none;
+  isolation: isolate;
   transition:
     transform 220ms var(--ease-out),
-    background-color 220ms var(--ease-out),
-    color 220ms var(--ease-out),
+    background-position 500ms var(--ease-out),
     box-shadow 220ms var(--ease-out);
 }
 
 .button svg {
-  width: 0.95rem;
-  height: 0.95rem;
+  flex: none;
+  width: 1em;
+  height: 1em;
+  transition: transform 220ms var(--ease-out);
 }
 
 .button--primary {
   color: #fff;
-  background: var(--violet-deep);
-  box-shadow: 0 14px 30px -14px rgb(79 46 224 / 70%);
+  background-image: linear-gradient(120deg, #4a2ad6 0%, var(--violet) 52%, #8b5cf6 100%);
+  background-size: 180% 100%;
+  background-position: 0% 50%;
+  box-shadow:
+    0 16px 32px -16px rgb(79 46 224 / 72%),
+    inset 0 1px 0 rgb(255 255 255 / 18%);
 }
 
 .button--primary:hover {
-  background: #4223c4;
-  box-shadow: 0 20px 36px -14px rgb(79 46 224 / 75%);
+  background-position: 100% 50%;
+  box-shadow:
+    0 22px 40px -16px rgb(79 46 224 / 80%),
+    inset 0 1px 0 rgb(255 255 255 / 22%);
   transform: translateY(-2px);
 }
 
-.button--quiet {
-  padding-inline: 0.35rem;
-  border-radius: 4px;
-  color: var(--ink);
-  background: none;
-  text-decoration: underline;
-  text-decoration-color: rgb(108 76 241 / 45%);
-  text-decoration-thickness: 1.5px;
-  text-underline-offset: 0.28em;
+.button--primary:hover svg {
+  transform: translateX(2px);
 }
 
-.button--quiet:hover {
-  color: var(--violet-deep);
-  text-decoration-color: currentColor;
+.button--primary:active {
+  box-shadow:
+    0 10px 22px -14px rgb(79 46 224 / 70%),
+    inset 0 1px 0 rgb(255 255 255 / 14%);
+  transform: translateY(0) scale(0.985);
 }
 
 @media (min-width: 1080px) {
@@ -297,5 +291,12 @@
   .site-footer__inner {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .actions .button {
+    width: 100%;
+    max-width: 20rem;
   }
 }
