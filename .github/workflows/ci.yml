@@ -40,10 +40,40 @@ jobs:
           path: _site
           include-hidden-files: true
           if-no-files-found: error
+  test:
+    name: test
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24.22.1"
+          cache: npm
+      - uses: actions/download-artifact@v8
+        with:
+          name: site
+          path: _site
+      - name: Install dependencies
+        run: npm ci
+      - name: Install the browser
+        run: npx playwright install --with-deps chromium
+      - name: Typecheck JavaScript
+        run: npm run lint:js
+      - name: Check the production artifact
+        run: npm run check:static
+      - name: Validate HTML
+        run: npm run check:html
+      - name: Unit tests
+        run: npm run test:unit
+      - name: Browser and accessibility tests
+        run: npm run test:e2e
   # ci-ok is the one required check: add every job above to its needs.
   ci-ok:
     if: always()
-    needs: [actionlint, build]
+    needs: [actionlint, build, test]
     runs-on: ubuntu-latest
     steps:
       - name: All required jobs passed

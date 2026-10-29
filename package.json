@@ -1,0 +1,30 @@
+{
+  "name": "yutna.github.io",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Personal site of Yutthana Siphuengchai — Jekyll on GitHub Pages.",
+  "engines": {
+    "node": "24.22.1"
+  },
+  "scripts": {
+    "build": "JEKYLL_ENV=production bundle exec jekyll build",
+    "serve": "bundle exec jekyll serve --host 127.0.0.1 --port 4000",
+    "preview": "node scripts/serve-site.mjs",
+    "lint:js": "tsc --noEmit",
+    "check:static": "node scripts/check-site.mjs",
+    "check:html": "html-validate \"_site/**/*.html\"",
+    "test:unit": "node --test tests/unit/*.test.mjs",
+    "test:e2e": "playwright test",
+    "test": "npm run lint:js && npm run check:static && npm run check:html && npm run test:unit && npm run test:e2e",
+    "test:all": "npm run build && npm test"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "@playwright/test": "1.64.1",
+    "@types/node": "24.19.2",
+    "cheerio": "1.2.0",
+    "html-validate": "11.17.0",
+    "typescript": "7.0.2"
+  }
+}
