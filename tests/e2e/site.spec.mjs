@@ -77,3 +77,38 @@ test('an unknown path returns the built 404 page', async ({ page }) => {
   await expect(page.locator('h1')).toHaveCount(1);
   await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/);
 });
+
+/**
+ * @param {import('@playwright/test').Locator} locator
+ */
+const footerType = (locator) =>
+  locator.evaluate((element) => {
+    const style = getComputedStyle(element);
+    return {
+      fontFamily: style.fontFamily,
+      fontSize: style.fontSize,
+      fontWeight: style.fontWeight,
+      letterSpacing: style.letterSpacing,
+      textTransform: style.textTransform,
+      color: style.color
+    };
+  });
+
+test('the contact CTA opens the Fastwork profile in a new tab', async ({ page }) => {
+  await page.goto('/');
+
+  const cta = page.locator('.button--primary');
+  await expect(cta).toHaveAttribute('href', 'https://fastwork.com/user/yutna');
+  await expect(cta).toHaveAttribute('target', '_blank');
+  await expect(cta).toHaveAttribute('rel', /noopener/);
+  await expect(cta).toHaveAttribute('rel', /noreferrer/);
+  await expect(cta).toHaveAttribute('aria-label', /Fastwork/);
+});
+
+test('the footer note and meta share one type style', async ({ page }) => {
+  await page.goto('/');
+
+  const note = await footerType(page.locator('.site-footer__note'));
+  const meta = await footerType(page.locator('.site-footer__meta'));
+  expect(note).toEqual(meta);
+});
