@@ -9,9 +9,6 @@
       aria-pressed="{{ forloop.first }}"
       style="--i: {{ forloop.index0 }}; --d: {{ forloop.index0 | minus: 1.5 | abs }}"
     >
-      <span class="layer__shell" aria-hidden="true">
-        <span class="layer__ghost">{{ layer.index }}</span>
-      </span>
       <span class="layer__card">
         <span class="layer__top">
           <span class="layer__index">{{ layer.index }}</span>
@@ -19,6 +16,7 @@
         </span>
         <span class="layer__name">{{ layer.name }}</span>
         <span class="layer__note">{{ layer.note }}</span>
+        <span class="layer__ghost" aria-hidden="true">{{ layer.index }}</span>
         <span class="layer__foot">
           <span class="layer__status">{{ layer.status }}</span>
         </span>
