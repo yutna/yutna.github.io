@@ -41,7 +41,7 @@ upstream version changes.
 ## Project
 
 This is the public personal site of Yutthana Siphuengchai, served as a
-GitHub Pages user site at <https://yutna.github.io/> with an empty
+GitHub Pages user site at <https://yutna.xyz/> with an empty
 `baseurl`.
 
 - `_config.yml` is the site contract: English metadata, `url`,

@@ -40,11 +40,11 @@ when indexing is on.
    - `_site/index.html` has no `meta[name="robots"]` containing `noindex`.
    - `_site/404.html` still has one.
    - `_site/robots.txt` ends with
-     `Sitemap: https://yutna.github.io/sitemap.xml`.
+     `Sitemap: https://yutna.xyz/sitemap.xml`.
    - `_site/sitemap.xml` lists every content page and not `404.html`.
 4. Merge the change and wait for the Pages workflow, then request the live
    files and confirm the same three things.
-5. Submit `https://yutna.github.io/sitemap.xml` in Google Search Console
+5. Submit `https://yutna.xyz/sitemap.xml` in Google Search Console
    and Bing Webmaster Tools, then request indexing for the homepage once.
 
 Turning indexing off is the same change in reverse.
