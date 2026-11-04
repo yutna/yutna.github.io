@@ -22,7 +22,7 @@ import {
 } from './lib/site.mjs';
 
 const SITE = '_site';
-const ORIGIN = 'https://yutna.github.io';
+const ORIGIN = 'https://yutna.xyz';
 const TITLE_LIMIT = 65;
 const DESCRIPTION_LIMIT = 160;
 const CSS_BUDGET = 40 * 1024;

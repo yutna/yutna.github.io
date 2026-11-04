@@ -7,7 +7,7 @@
 Personal site of **Yutthana Siphuengchai**, built with Jekyll and deployed to
 GitHub Pages with GitHub Actions.
 
-**Live site:** <https://yutna.github.io/>
+**Live site:** <https://yutna.xyz/>
 
 ## Status
 
