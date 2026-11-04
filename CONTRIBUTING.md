@@ -48,3 +48,14 @@ Run the full check suite with `mise exec -- npm run test:all`.
 Search indexing is off during the foundation stage. Keep the `noindex`
 metadata, the `robots.txt` rules, and the SEO checks in place until the site
 is explicitly opened for indexing.
+
+## Pages routes
+
+A project repository with GitHub Pages is served at `/<repo>/` under the user
+custom domain. Before creating one, check `docs/routes.json` and
+`docs/routing.md`. If the repository name collides with a reserved route,
+rename the repository or give the project its own custom subdomain. Add the
+repository name to `projects` in `docs/routes.json` in the same change.
+
+`npm run check:routes` enforces the registry; `npm run check:static` runs it
+after the build.

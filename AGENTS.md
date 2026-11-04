@@ -59,6 +59,9 @@ GitHub Pages user site at <https://yutna.xyz/> with an empty
 - No analytics, trackers, cookies, third-party runtime fonts, or
   third-party runtime dependencies. The site must build to a fully
   self-hosted artifact.
+- Project Pages repositories are served at `/<repo>/` under `yutna.xyz`.
+  Add every Pages repository to `docs/routes.json`; `scripts/check-routes.mjs`
+  fails when a project path collides with a reserved route.
 
 ## Context map
 
@@ -71,7 +74,9 @@ GitHub Pages user site at <https://yutna.xyz/> with an empty
 | `assets/css/main.scss` | Design system entry point |
 | `assets/js/` | Progressive enhancement runtime |
 | `scripts/check-site.mjs` | Built-site checks; shell around `scripts/lib/site.mjs` |
+| `scripts/check-routes.mjs` | Route-registry check; shell around `scripts/lib/routes.mjs` |
 | `docs/seo.md` | Indexing switch, launch checklist, metadata rules |
+| `docs/routing.md` | Reserved user-site routes and project Pages paths |
 | `scripts/lib/site.mjs` | Pure URL, srcset, and noindex helpers |
 | `scripts/serve-site.mjs` | Static preview used by Playwright |
 | `tests/unit/` | Value tests for the pure helpers |

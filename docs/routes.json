@@ -1,0 +1,17 @@
+{
+  "reserved": [
+    "",
+    "about",
+    "work",
+    "writing",
+    "contact",
+    "assets",
+    "404.html",
+    "robots.txt",
+    "sitemap.xml"
+  ],
+  "projects": [
+    "fastwork-portfolio",
+    "software-delivery-assurance"
+  ]
+}

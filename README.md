@@ -35,7 +35,7 @@ CSS and 15 KB JavaScript budget, and checks the 1200×630 social card.
 
 ## Built with
 
-- Ruby 4.0.7, Bundler, Jekyll 4.4.1, WEBrick
+- Ruby 4.0.9, Bundler, Jekyll 4.4.1, WEBrick
 - Node.js 24.22.1 for checks and browser tests
 - `jekyll-seo-tag`, `jekyll-sitemap`
 - GitHub Actions for CI and GitHub Pages
@@ -69,15 +69,16 @@ mise exec -- npm run test:all
 
 This builds the site, type-checks the JavaScript, validates HTML, checks
 titles, descriptions, canonicals, internal links, `noindex`, `robots.txt`, and
-the sitemap, then runs the unit tests and the Playwright suite at desktop and
-mobile widths. The browser tests include axe accessibility checks and verify
+the sitemap, then checks the route registry, runs the unit tests, and runs the Playwright
+suite at desktop and mobile widths. The browser tests include axe accessibility checks and verify
 that no third-party runtime request is made.
 
 Individual entry points:
 
 ```bash
 mise exec -- npm run lint:js        # tsc --noEmit
-mise exec -- npm run check:static  # built-site metadata and link checks
+mise exec -- npm run check:static  # metadata, links, and route registry
+mise exec -- npm run check:routes  # route registry only
 mise exec -- npm run check:html    # html-validate
 mise exec -- npm run test:unit     # node:test
 mise exec -- npm run test:e2e      # Playwright + axe
